@@ -11,10 +11,10 @@ include=<%= @node[:php][:fpm][:pools_dir] %>/*.conf
 
 [global]
 ; Pid file
-pid = /var/run/php-fpm/php-fpm.pid
+pid = /var/run/php5-fpm.pid
 
 ; Error log file
-error_log = /var/log/php-fpm/error.log
+error_log = /var/log/php5-fpm.log
 daemonize = yes
 
 ;;;;;;;;;;;;;;;;;;;;

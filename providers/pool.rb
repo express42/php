@@ -14,7 +14,7 @@ action :add do
       :limits => new_resource.limits,
       :php => new_resource.php_var 
     )
-    notifies :reload, resources(:service => "php-fpm")
+    notifies :reload, resources(:service => "php5-fpm")
     cookbook "php"
   end
 end

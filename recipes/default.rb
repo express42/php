@@ -7,13 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{php-bcmath php-gd php-fpm php-cli php-common php-mbstring}.each do |pkg|
+%w{php5-gd php5-fpm php5-cli php5-common}.each do |pkg|
   package pkg do 
     action :install
   end
 end
 
-service "php-fpm" do
+service "php5-fpm" do
   supports :status => true, :restart => true, :reload => true
   action [ :enable, :start ]
 end
@@ -21,7 +21,7 @@ end
 template node[:php][:fpm][:main_conf] do
   source "fpm-main.conf.erb"
   mode 0644
-  notifies :restart, resources(:service => "php-fpm"), :immediately
+  notifies :restart, resources(:service => "php5-fpm"), :immediately
 end
 
 php_pool "www" do
