@@ -2,8 +2,8 @@ actions :add, :delete
  
  
 attribute :name, :kind_of => String, :name_attribute => true
-attribute :user, :kind_of => String, :default => "nobody"
-attribute :group, :kind_of => String, :default => "nobody"
+attribute :user, :kind_of => String, :default => "www-data"
+attribute :group, :kind_of => String, :default => "www-data"
 attribute :allow, :kind_of => String, :default => "127.0.0.1"
 attribute :address, :kind_of => String, :default => "127.0.0.1"
 attribute :port, :kind_of => String
