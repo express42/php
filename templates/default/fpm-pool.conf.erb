@@ -21,6 +21,8 @@ pm.max_requests = <%= @limits[:requests] %>
 
 pm.status_path = /<%= @name %>/status
 
+request_terminate_timeout = 120s
+
 rlimit_files = <%= @limits[:files] %>
 rlimit_core = <%= @limits[:core] %>
 
