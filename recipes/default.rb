@@ -24,7 +24,9 @@ template node[:php][:fpm][:main_conf] do
   notifies :restart, resources(:service => "php5-fpm"), :immediately
 end
 
-php_pool "www" do
-  port "9000"
-  action :add
+if node.recipe?("php::default") or node.recipe?("php")
+  php_pool "www" do
+    port "9000"
+    action :add
+  end
 end
