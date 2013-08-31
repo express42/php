@@ -12,7 +12,8 @@ action :add do
       :allow => new_resource.allow,
       :backlog => new_resource.backlog,
       :limits => new_resource.limits,
-      :php => new_resource.php_var 
+      :php => new_resource.php_var,
+      :request_terminate_timeout => new_resoure.request_terminate_timeout
     )
     notifies :reload, resources(:service => "php5-fpm")
     cookbook "php"
