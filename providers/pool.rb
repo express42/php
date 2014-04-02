@@ -49,6 +49,7 @@ action :add do
       :backlog => new_resource.backlog,
       :limits => new_resource.limits,
       :php => new_resource.php_var,
+      :php_user => new_resource.php_user_var,
       :request_terminate_timeout => new_resource.request_terminate_timeout
     )
     notifies :reload, resources(:service => "php5-fpm")
