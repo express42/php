@@ -13,10 +13,17 @@
   end
 end
 
-service "php5-fpm" do
-  supports :status => true, :restart => true, :reload => true
-  action [ :enable, :start ]
-  provider Chef::Provider::Service::Upstart if node['platform_version'] == '14.04'
+if node['platform_version'] == '14.04'
+  service "php5-fpm" do
+    supports :status => true, :restart => true
+    action [ :enable, :start ]
+    provider Chef::Provider::Service::Upstart
+  end
+else
+  service "php5-fpm" do
+    supports :status => true, :restart => true, :reload => true
+    action [ :enable, :start ]
+  end
 end
 
 template node[:php][:fpm][:main_conf] do
