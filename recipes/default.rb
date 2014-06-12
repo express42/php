@@ -8,7 +8,7 @@
 #
 
 %w{php5-gd php5-fpm php5-cli php5-common}.each do |pkg|
-  package pkg do 
+  package pkg do
     action :install
   end
 end
@@ -16,6 +16,7 @@ end
 service "php5-fpm" do
   supports :status => true, :restart => true, :reload => true
   action [ :enable, :start ]
+  provider Chef::Provider::Service::Upstart if node['platform_version'] == '14.04'
 end
 
 template node[:php][:fpm][:main_conf] do
