@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of php.
 
+## 0.1.1:
+
+* Update metadata
+* Add upstart script
+* Rubocop and Foodcritic
+
 ## 0.1.0:
 
 * Initial release of php
