@@ -1,5 +1,5 @@
 actions :add
-default_action :create
+default_action :add
 
 attribute :name, kind_of: String, name_attribute: true
 attribute :user, kind_of: String, default: 'www-data'
