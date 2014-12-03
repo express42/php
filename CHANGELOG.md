@@ -2,11 +2,18 @@
 
 This file is used to list changes made in each version of php.
 
+## 0.1.2:
+
+* Update metadata
+* Update README
+* Add Test Kitchen, Rubocop and Travis CI
+* Fix Rubocop and Foodcritic warnings
+
 ## 0.1.1:
 
 * Update metadata
 * Add upstart script
-* Rubocop and Foodcritic
+* Fix Rubocop and Foodcritic warnings
 
 ## 0.1.0:
 
