@@ -29,7 +29,7 @@ def load_current_resource
 
   # delete unnecessary files
   (files_list - resource_files).each do |f|
-    ::File::unlink(pool_path + '/' + f)
+    ::File.unlink(pool_path + '/' + f)
     Chef::Log.info('Removing file ' + f + ' in directory ' + pool_path + ' ...')
   end
   @current_resource
@@ -40,19 +40,21 @@ action :add do
     mode '0644'
     source 'fpm-pool.conf.erb'
     variables(
-      :name => new_resource.name,
-      :user => new_resource.user,
-      :group => new_resource.group,
-      :address => new_resource.address,
-      :port => new_resource.port,
-      :allow => new_resource.allow,
-      :backlog => new_resource.backlog,
-      :limits => new_resource.limits,
-      :php => new_resource.php_var,
-      :php_user => new_resource.php_user_var,
-      :request_terminate_timeout => new_resource.request_terminate_timeout
+      name: new_resource.name,
+      user: new_resource.user,
+      group: new_resource.group,
+      address: new_resource.address,
+      port: new_resource.port,
+      allow: new_resource.allow,
+      backlog: new_resource.backlog,
+      limits: new_resource.limits,
+      php: new_resource.php_var,
+      php_user: new_resource.php_user_var,
+      request_terminate_timeout: new_resource.request_terminate_timeout
     )
     notifies :reload, 'service[php5-fpm]'
     cookbook 'php'
   end
+
+  new_resource.updated_by_last_action(true)
 end

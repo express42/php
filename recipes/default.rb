@@ -38,9 +38,8 @@ template node['php']['fpm']['main_conf'] do
   notifies :restart, 'service[php5-fpm]', :immediately
 end
 
-if node['php']['fpm']['create_default_pool']
-  php_pool 'www' do
-    port '9000'
-    action :add
-  end
+php_pool 'www' do
+  port '9000'
+  action :add
+  only_if { node['php']['fpm']['create_default_pool'] }
 end
