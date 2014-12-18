@@ -29,8 +29,32 @@ end
 describe file('/etc/php5/fpm/pool.d/www.conf') do
   it { should be_file }
   it { should contain 'Chef generated configuration' }
+  it { should contain '[www]' }
+  it { should contain '127.0.0.1:9000' }
 end
 
 describe port(9000) do
+  it { should be_listening.on('127.0.0.1').with('tcp') }
+end
+
+describe file('/etc/php5/fpm/pool.d/test1.conf') do
+  it { should be_file }
+  it { should contain 'Chef generated configuration' }
+  it { should contain '[test1]' }
+  it { should contain '127.0.0.1:9001' }
+end
+
+describe port(9001) do
+  it { should be_listening.on('127.0.0.1').with('tcp') }
+end
+
+describe file('/etc/php5/fpm/pool.d/test2.conf') do
+  it { should be_file }
+  it { should contain 'Chef generated configuration' }
+  it { should contain '[test2]' }
+  it { should contain '127.0.0.1:9002' }
+end
+
+describe port(9002) do
   it { should be_listening.on('127.0.0.1').with('tcp') }
 end
