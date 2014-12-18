@@ -8,6 +8,7 @@ This file is used to list changes made in each version of php.
 * Update README
 * Add Test Kitchen, Rubocop and Travis CI
 * Fix Rubocop and Foodcritic warnings
+* Fix reload signal
 
 ## 0.1.1:
 
